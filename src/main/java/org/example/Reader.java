@@ -6,6 +6,11 @@ public class Reader {
 
     public String readRequest() {
         System.out.print("Введите путь: ");
-        return scanner.nextLine();
+        String line = scanner.nextLine();
+        if (line.equals("q")) // выйти когда нажато 'q'
+        {
+            System.exit(0);
+        }
+        return line;
     }
 }

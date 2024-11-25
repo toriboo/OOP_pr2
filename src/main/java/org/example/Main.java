@@ -6,31 +6,23 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        char ch ;
-        int code ;
         Map<String, ArrayList<Building>> cityData;
+        System.out.println("Введите q для завершения");
         while (true) {
-            try {
-                if (!(-1 != (code = System.in.read()))) break;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            ch = (char) code;
-            if ('q' == ch) // выйти когда нажато 'q'
-            {
-                System.exit(0);
-            }
             String filePath = readFilePath();
             if (filePath.endsWith(".csv")) {
                 ReaderCsv readerCsv = new ReaderCsv();
                 readerCsv.readCsv(filePath);
-            } else {
-                System.out.println("Неподдерживаемы формат");
-
             }
+            else if (filePath.endsWith(".xml")) {
+                ReaderXml readerXml= new ReaderXml();
+                readerXml.readXml(filePath);
+            }
+            else {
+                System.out.println("Неподдерживаемы формат");
+            }
+
         }
-
-
 
     }
     private static String readFilePath(){

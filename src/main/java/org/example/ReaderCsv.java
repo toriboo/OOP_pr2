@@ -15,9 +15,7 @@ public class ReaderCsv {
         String line = "";
         String csvSplitBy = ";";
         try {
-
             br = new BufferedReader(new FileReader(filePath));
-
             if ((line = br.readLine()) != null) {
                 // Пропуск заголовка
             }
@@ -38,7 +36,8 @@ public class ReaderCsv {
             }
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Нет данного файла");
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
