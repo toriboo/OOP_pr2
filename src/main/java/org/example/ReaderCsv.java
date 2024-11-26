@@ -49,7 +49,6 @@ public class ReaderCsv {
                 }
             }
         }
-        System.out.println("Количество городов: " + cityData.size());
         return cityData;
     }
 

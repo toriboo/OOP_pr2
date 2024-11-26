@@ -48,8 +48,6 @@ public class ReaderXml {
         }catch (Exception e) {
             e.printStackTrace();
         }
-
-        System.out.println("Количество городов: " + cityData.size());
         return cityData;
     }
 }

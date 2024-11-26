@@ -5,16 +5,21 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         Map<String, ArrayList<Building>> cityData;
+
         System.out.println("Введите q для завершения");
         while (true) {
             String filePath = readFilePath();
             if (filePath.endsWith(".csv")) {
+                long startTime = System.currentTimeMillis();;
                 ReaderCsv readerCsv = new ReaderCsv();
                 showStatistics(readerCsv.readCsv(filePath));
+                System.out.println("Время обработки " + processingTime(startTime) + " мс");
             }
             else if (filePath.endsWith(".xml")) {
+                long startTime = System.currentTimeMillis();
                 ReaderXml readerXml= new ReaderXml();
                 showStatistics(readerXml.readXml(filePath));
+                System.out.println("Время обработки " + processingTime(startTime) + " мс");
             }
             else {
                 System.out.println("Неподдерживаемы формат");
@@ -28,6 +33,9 @@ public class Main {
 
     private static  void showStatistics(Map<String, ArrayList<Building>> cityData){
         Statistics statistics  = new Statistics();
-        statistics.displayInfo(cityData);
+        statistics.displayInformation(cityData);
+    }
+    public static long processingTime(long start) {
+        return (System.currentTimeMillis()- start);
     }
 }

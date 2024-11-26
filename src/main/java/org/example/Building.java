@@ -9,8 +9,11 @@ public class Building {
         this.house = house;
         this.floor = floor;
     }
+    public int getFloor(){
+        return floor;
+    }
     public String getAddress(){
-        return street + ' ' + house + ' ' + floor + ' ';
+        return street + ' ' + house + ' ' + floor;
     }
 }
 
