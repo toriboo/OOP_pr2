@@ -13,7 +13,7 @@ public class ReaderCsv {
         Map<String, ArrayList<Building>> cityData = new HashMap<>();
         BufferedReader br = null;
         String line = "";
-        String csvSplitBy = ";";
+        String csvSplitBy = ";"; // разделитель
         try {
             br = new BufferedReader(new FileReader(filePath));
             if ((line = br.readLine()) != null) {

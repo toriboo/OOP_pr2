@@ -1,8 +1,6 @@
 package org.example;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,21 +10,24 @@ public class Main {
             String filePath = readFilePath();
             if (filePath.endsWith(".csv")) {
                 ReaderCsv readerCsv = new ReaderCsv();
-                readerCsv.readCsv(filePath);
+                showStatistics(readerCsv.readCsv(filePath));
             }
             else if (filePath.endsWith(".xml")) {
                 ReaderXml readerXml= new ReaderXml();
-                readerXml.readXml(filePath);
+                showStatistics(readerXml.readXml(filePath));
             }
             else {
                 System.out.println("Неподдерживаемы формат");
             }
-
         }
-
     }
     private static String readFilePath(){
         Reader reader = new Reader();
         return reader.readRequest();
+    }
+
+    private static  void showStatistics(Map<String, ArrayList<Building>> cityData){
+        Statistics statistics  = new Statistics();
+        statistics.displayInfo(cityData);
     }
 }

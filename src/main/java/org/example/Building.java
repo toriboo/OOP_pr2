@@ -9,10 +9,8 @@ public class Building {
         this.house = house;
         this.floor = floor;
     }
-    @Override
-    public String toString() {
-        return "{street='" + street + '\'' +
-                ", house='" + house + '\'' +
-                ", floor=" + floor + '}';
+    public String getAddress(){
+        return street + ' ' + house + ' ' + floor + ' ';
     }
 }
+
